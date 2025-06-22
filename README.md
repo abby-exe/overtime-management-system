@@ -12,7 +12,7 @@ The **Overtime Management System** is designed to streamline overtime tracking, 
 ## 📸 Screenshots
 
 <p align="center">
-  <img src="screenshots/otlanding.jpg" alt="Login Page" width="600">
+  <img src="otlanding.jpg" alt="Login Page" width="600">
 </p>
 
 ---
