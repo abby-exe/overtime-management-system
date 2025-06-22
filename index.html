@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overtime Management System</title>
+    <meta name="description" content="Welcome to the Solara Overtime Management System. Manage your overtime efficiently with our easy-to-use platform.">
+    <meta name="keywords" content="solara, solara systems, Solara, Solara Systems, SOTMS, Solara Overtime Management System, solara overtime management system, Solara OT, solara ot, overtime management, employee management, HR system">
+    <meta name="author" content="Solara Systems">
+    <link rel="icon" href="images/favicon.ico"> <!-- Add a favicon -->
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        // Disable right-click
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        // Disable common keyboard shortcuts
+        document.onkeydown = function(e) {
+            if (e.key === "F12" || 
+                (e.ctrlKey && e.shiftKey && e.key === "I") || 
+                (e.ctrlKey && e.shiftKey && e.key === "J") || 
+                (e.ctrlKey && e.key === "U") || 
+                (e.ctrlKey && e.key === "S")) {
+                return false;
+            }
+        };
+
+        // Warn on Console Open
+        (function() {
+            const start = Date.now();
+            const devtools = { open: false, orientation: null };
+            const threshold = 160;
+
+            setInterval(function() {
+                const widthThreshold = window.outerWidth - window.innerWidth > threshold;
+                const heightThreshold = window.outerHeight - window.innerHeight > threshold;
+                const orientation = widthThreshold ? 'vertical' : 'horizontal';
+
+                if (!(heightThreshold && widthThreshold) &&
+                    ((window.Firebug && window.Firebug.chrome && window.Firebug.chrome.isInitialized) || widthThreshold || heightThreshold)) {
+                    if (!devtools.open || devtools.orientation !== orientation) {
+                        alert('Please do not open the console.');
+                        window.location.href = "some_warning_page.html"; // Redirect or alert user
+                    }
+                    devtools.open = true;
+                    devtools.orientation = orientation;
+                } else {
+                    devtools.open = false;
+                    devtools.orientation = null;
+                }
+            }, 500);
+        })();
+    </script>
+</head>
+<body class="index-page">
+    <!-- Header -->
+    <header>
+        <img src="images/logo.png" alt="Solara Logo" class="logo"> <!-- Add your logo image here -->
+        <h1>Solara Overtime Management System</h1>
+    </header>
+
+    <!-- Wrapper for the Content -->
+    <div class="wrapper">
+        <h2 style="color: white;"><b>Welcome to the Solara Overtime Management System</b></h2>
+        <p><em><b>Click on the button accordingly to login into your account!</b></em></p>
+        
+        <!-- Container for Buttons -->
+        <div class="button-container">
+            <button class="oval-button home-page-button" onclick="location.href='employee_login.php'">
+                <i class="fas fa-user"></i> Employee
+            </button>
+            <button class="oval-button home-page-button" onclick="location.href='teamlead_login.php'">
+                <i class="fas fa-users-cog"></i> Team Lead
+            </button>
+            <button class="oval-button home-page-button" onclick="location.href='hr_login.php'">
+                <i class="fas fa-briefcase"></i> HR
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 Solara Systems (M) Sdn.Bhd
+    </footer>
+</body>
+</html>

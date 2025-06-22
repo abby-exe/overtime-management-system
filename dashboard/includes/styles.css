@@ -1,0 +1,171 @@
+/* General Styles */
+body {
+    color: #003b5c; /* BMW M blue text */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    text-align: center;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    position: relative; /* Position relative for pseudo-element */
+}
+
+/* Header Styles */
+header {
+    background-color: #29ABE2; /* BMW M blue */
+    padding: 15px;
+    color: #ffffff; /* White text */
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space between logo and hamburger */
+    position: relative; /* Position relative to place the back button */
+    z-index: 2; /* Ensure the header is above the overlay */
+}
+
+/* Title in Header */
+header h1 {
+    font-size: 1.5em; /* Slightly larger for prominence */
+    margin: 0; /* Remove default margin */
+    flex-grow: 1; /* Allow the title to grow and fill available space */
+    text-align: center; /* Center align text */
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden; /* Hide overflow text */
+    text-overflow: ellipsis; /* Add ellipsis for overflow text */
+    order: 2; /* Ensure the title is in the center */
+}
+
+/* Logo in Header */
+.logo {
+    max-height: 50px; /* Adjust height based on your logo size */
+    margin-right: 10px; /* Add space to the right of the logo */
+    order: 1; /* Keep the logo on the left */
+    flex-shrink: 0; /* Prevent logo from shrinking */
+}
+
+/* Hamburger Button in Header */
+.hamburger-button {
+    background-color: transparent; /* Remove background color */
+    color: #ffffff; /* White lines */
+    border: none; /* Remove border */
+    padding: 10px;
+    font-size: 24px; /* Adjust font size for better visibility */
+    line-height: 0.8; /* Adjust line height for closer lines */
+    cursor: pointer;
+    margin-left: 10px; /* Add space to the left of the button */
+    order: 3; /* Keep the button on the right */
+    flex-shrink: 0; /* Prevent button from shrinking */
+}
+
+.hamburger-button:hover {
+    color: #cccccc; /* Slightly lighter on hover */
+}
+
+/* Employee Information Slider */
+.employee-info-slider {
+    position: fixed;
+    top: 0;
+    left: -350px; /* Start hidden off-screen to the left */
+    width: 350px;
+    height: 100%;
+    background-color: #ffffff; /* Light background */
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3); /* Shadow effect */
+    overflow-y: auto; /* Enables scrolling if content overflows */
+    transition: left 0.3s ease; /* Smooth slide animation */
+    z-index: 1000; /* Ensure it's above other content */
+    box-sizing: border-box; /* Include padding in width */
+    display: flex; /* Use flexbox for centering */
+    flex-direction: column;
+    padding: 30px 20px;
+    text-align: left; /* Align text inside the slider to the left */
+}
+
+/* Center the Dashboard Title */
+.employee-info-slider h2 {
+    color: #003b5c; /* BMW M blue */
+    margin-bottom: 15px;
+    border-bottom: 2px solid #003b5c; /* Add a line below the heading */
+    padding-bottom: 10px; /* Add some space between the text and the line */
+    width: 100%;
+    text-align: center; /* Center align the title */
+}
+
+/* Align the Employee Information to the Left */
+.employee-info-slider p {
+    width: 100%; /* Take full width */
+    text-align: left; /* Align text to the left */
+}
+
+/* Logout Button Position */
+.logout-button {
+    background-color: #e4002b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: auto; /* Push the logout button to the bottom */
+    align-self: center; /* Center the logout button horizontally */
+    position: absolute;
+    bottom: 20px; /* Position the button 20px from the bottom */
+}
+
+.logout-button:hover {
+    background-color: #c70039;
+}
+
+/* Back Button to Close Slider */
+.back-button {
+    background-color: transparent;
+    color: #003b5c; /* BMW M blue */
+    border: none;
+    font-size: 20px; /* Larger font size for arrow */
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px; /* Position the back button on the right inside the slider */
+}
+
+.back-button:hover {
+    color: #002a47; /* Slightly darker on hover */
+}
+
+/* When the slider is active */
+.employee-info-slider.active {
+    left: 0; /* Slide in from the left */
+}
+
+/* Main Dashboard Content */
+.dashboard-main {
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in width */
+    text-align: left; /* Align text to the left */
+    flex-grow: 1; /* Grow to fill the available space */
+    position: relative; /* Ensure it is above the background */
+    z-index: 2; /* Ensure the main content is above the overlay */
+}
+
+/* Footer Styles */
+footer {
+    background-color: #29ABE2; /* BMW M blue */
+    padding: 10px;
+    color: #ffffff; /* White text */
+    text-align: center;
+    position: relative; /* Position relative for flexible placement */
+    width: 100%;
+    z-index: 2; /* Ensure the footer is above the overlay */
+}
+
+/* Responsive Design */
+@media (max-width: 400px) {
+    .employee-info-slider {
+        width: 100%;
+        left: -100%;
+    }
+    
+    .employee-info-slider.active {
+        left: 0;
+    }
+}

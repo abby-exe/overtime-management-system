@@ -1,0 +1,60 @@
+To create a database tables for this website please use:
+
+1) Users Table:
+
+MySQL:
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    ic_number VARCHAR(20) NOT NULL,
+    email VARCHAR(191) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    department VARCHAR(100) NOT NULL,
+    role VARCHAR(50) DEFAULT NULL
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+
+Microsoft SQL Server:
+CREATE TABLE users (
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    ic_number VARCHAR(20) NOT NULL,
+    email VARCHAR(191) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    department VARCHAR(100) NOT NULL,
+    role VARCHAR(50) NULL
+);
+
+2) OT Submissions Table:
+
+MySQL:
+CREATE TABLE ot_submissions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    time_in TIME DEFAULT NULL,
+    time_out TIME DEFAULT NULL,
+    site VARCHAR(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+    date DATE DEFAULT NULL,
+    status ENUM('Pending', 'Approved', 'Rejected') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT 'Pending',
+    rejection_reason TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+    approved_by INT DEFAULT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    INDEX (user_id)
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+
+Microsoft SQL Server:
+CREATE TABLE ot_submissions (
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    user_id INT NULL,
+    time_in TIME NULL,
+    time_out TIME NULL,
+    site NVARCHAR(100) NULL,
+    date DATE NULL,
+    status NVARCHAR(50) DEFAULT 'Pending', -- SQL Server does not support ENUM, using NVARCHAR instead
+    rejection_reason NVARCHAR(MAX) NULL,
+    approved_by INT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+-- Optional: Create an index on user_id for better performance
+CREATE INDEX idx_user_id ON ot_submissions(user_id);
+
