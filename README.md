@@ -50,3 +50,8 @@ The **Overtime Management System** is designed to streamline overtime tracking, 
 - Report generation logic and real-world approval flows
 
 ---
+
+## 🚀 How to Run Locally
+
+```bash
+git clone https://github.com/abby-exe/overtime-management-system.git
